@@ -6,9 +6,18 @@ on:
   pull_request:
     branches: [ main ]
 
+# Configurar permisos para GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     - name: Checkout
@@ -26,10 +35,21 @@ jobs:
     - name: Build Angular app
       run: npm run build:github-pages
       
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
+    - name: Verify build output
+      run: |
+        echo "Build contents:"
+        ls -la dist/
+        echo "Bold Angular contents:"
+        ls -la dist/bold-angular/
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist/bold-angular
-        cname: # Opcional: tu dominio personalizado
+        path: './dist/bold-angular'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
