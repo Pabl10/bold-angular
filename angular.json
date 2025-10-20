@@ -27,7 +27,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "public"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
@@ -58,6 +59,11 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "github-pages": {
+              "baseHref": "/bold-angular/",
+              "deployUrl": "/bold-angular/",
+              "outputHashing": "all"
             }
           },
           "defaultConfiguration": "production"
