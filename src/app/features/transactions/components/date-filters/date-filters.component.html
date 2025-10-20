@@ -1,0 +1,10 @@
+<div class="date-filters">
+  <button 
+    *ngFor="let option of dateFilterOptions"
+    class="date-filter-btn"
+    [class.active]="option.value === activeFilter"
+    (click)="onDateFilterChange(option.value)"
+    mat-button>
+    {{ option.label }}
+  </button>
+</div>

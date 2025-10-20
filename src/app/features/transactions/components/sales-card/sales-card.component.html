@@ -1,0 +1,23 @@
+<mat-card class="sales-card">
+  <div class="sales-card__content">
+    <div class="sales-card__header">
+      <h3 class="sales-card__title">Total de Ventas</h3>
+      <mat-icon 
+        class="sales-card__info-icon"
+        matTooltip="Total calculado según los filtros aplicados"
+        matTooltipPosition="above">
+        info
+      </mat-icon>
+    </div>
+    
+    <div class="sales-card__amount">
+      <span class="sales-card__currency">$</span>
+      <span class="sales-card__value">{{ totalAmount | currencyColombia:false }}</span>
+    </div>
+    
+    <div class="sales-card__footer">
+      <p class="sales-card__period">{{ periodDescription }}</p>
+      <p class="sales-card__count">{{ transactionCount }} transacciones</p>
+    </div>
+  </div>
+</mat-card>

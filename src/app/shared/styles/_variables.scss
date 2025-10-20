@@ -1,0 +1,75 @@
+// Paleta de colores Bold
+$primary-blue: #1E3A8A;
+$primary-red: #DC2626;
+$primary-pink: #EC4899;
+
+// Colores de fondo
+$background-primary: #F8FAFC;
+$background-secondary: #FFFFFF;
+$background-tertiary: #F1F5F9;
+
+// Colores de texto
+$text-primary: #1E293B;
+$text-secondary: #64748B;
+$text-tertiary: #94A3B8;
+
+// Colores de estado
+$success: #10B981;
+$error: #EF4444;
+$warning: #F59E0B;
+$info: #3B82F6;
+
+// Colores de transacciones
+$transaction-success: #10B981;
+$transaction-rejected: #EF4444;
+
+// Métodos de pago
+$payment-card: #3B82F6;
+$payment-pse: #8B5CF6;
+$payment-daviplata: #06B6D4;
+$payment-nequi: #10B981;
+$payment-bancolombia: #F59E0B;
+
+// Franquicias de tarjetas
+$franchise-visa: #1A1F71;
+$franchise-mastercard: #EB001B;
+$franchise-amex: #006FCF;
+
+// Colores de filtros
+$filter-active: #E2E8F0;
+$filter-hover: #F1F5F9;
+
+// Sombras
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+// Bordes
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+
+// Espaciado
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1200px;
+
+// Z-index
+$z-dropdown: 1000;
+$z-modal: 1050;
+$z-tooltip: 1100;
+
+// Transiciones
+$transition-fast: 0.15s ease-in-out;
+$transition-normal: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;

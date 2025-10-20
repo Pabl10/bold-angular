@@ -1,0 +1,184 @@
+// Mixins para responsive design
+@mixin mobile {
+  @media (max-width: #{$mobile - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile}) and (max-width: #{$tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+// Mixins para flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Mixins para botones
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-fast;
+  text-decoration: none;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: linear-gradient(135deg, $primary-blue, $primary-red);
+  color: white;
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: $background-secondary;
+  color: $text-primary;
+  border: 1px solid $text-tertiary;
+  
+  &:hover:not(:disabled) {
+    background-color: $filter-hover;
+    border-color: $text-secondary;
+  }
+}
+
+@mixin button-ghost {
+  @include button-base;
+  background-color: transparent;
+  color: $text-primary;
+  
+  &:hover:not(:disabled) {
+    background-color: $filter-hover;
+  }
+}
+
+// Mixins para cards
+@mixin card-base {
+  background-color: $background-secondary;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-lg;
+  transition: all $transition-normal;
+}
+
+@mixin card-hover {
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-xl;
+  }
+}
+
+// Mixins para inputs
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $text-tertiary;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all $transition-fast;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+  }
+  
+  &::placeholder {
+    color: $text-tertiary;
+  }
+}
+
+// Mixins para animaciones
+@mixin fade-in($duration: $transition-normal) {
+  animation: fadeIn $duration ease-in-out;
+}
+
+@mixin slide-in-right($duration: $transition-normal) {
+  animation: slideInRight $duration ease-in-out;
+}
+
+@mixin slide-in-left($duration: $transition-normal) {
+  animation: slideInLeft $duration ease-in-out;
+}
+
+// Mixins para gradientes
+@mixin gradient-primary {
+  background: linear-gradient(135deg, $primary-blue, $primary-red);
+}
+
+@mixin gradient-card {
+  background: linear-gradient(135deg, $background-secondary, $background-tertiary);
+}
+
+// Mixins para sombras
+@mixin shadow-sm {
+  box-shadow: $shadow-sm;
+}
+
+@mixin shadow-md {
+  box-shadow: $shadow-md;
+}
+
+@mixin shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+@mixin shadow-xl {
+  box-shadow: $shadow-xl;
+}
+
+// Mixins para texto
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-truncate($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

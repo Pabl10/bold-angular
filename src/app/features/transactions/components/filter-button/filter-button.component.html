@@ -1,0 +1,41 @@
+<div class="filter-button" appClickOutside (clickOutside)="closeDropdown()">
+  <button 
+    class="filter-btn"
+    (click)="toggleDropdown()"
+    mat-button>
+    <mat-icon>filter_list</mat-icon>
+    Filtrar
+  </button>
+  
+  <div class="filter-dropdown" [class.open]="isDropdownOpen">
+    <div class="filter-options">
+      <label class="filter-option">
+        <mat-checkbox 
+          [checked]="isChecked('all')"
+          (change)="onFilterChange('all', $event.checked)">
+          Ver todos
+        </mat-checkbox>
+      </label>
+      <label class="filter-option">
+        <mat-checkbox 
+          [checked]="isChecked('terminal')"
+          (change)="onFilterChange('terminal', $event.checked)">
+          Cobro con datáfono
+        </mat-checkbox>
+      </label>
+      <label class="filter-option">
+        <mat-checkbox 
+          [checked]="isChecked('payment_link')"
+          (change)="onFilterChange('payment_link', $event.checked)">
+          Cobro con link de pago
+        </mat-checkbox>
+      </label>
+    </div>
+    <button 
+      class="apply-btn"
+      (click)="applyFilters()"
+      mat-button>
+      Aplicar
+    </button>
+  </div>
+</div>

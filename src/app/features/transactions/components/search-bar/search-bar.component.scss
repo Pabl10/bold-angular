@@ -1,0 +1,15 @@
+.search-bar {
+  min-width: 300px;
+  
+  @media (max-width: 767px) {
+    min-width: 100%;
+  }
+}
+
+.search-bar__field {
+  width: 100%;
+  
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+}

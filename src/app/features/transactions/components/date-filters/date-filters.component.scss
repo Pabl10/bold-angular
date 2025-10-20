@@ -1,0 +1,34 @@
+.date-filters {
+  display: flex;
+  gap: 0.5rem;
+  
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
+}
+
+.date-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: #1E293B;
+  
+  &:hover {
+    background-color: #F1F5F9;
+  }
+  
+  &.active {
+    background-color: #E2E8F0;
+    color: #1E293B;
+    font-weight: 600;
+  }
+}

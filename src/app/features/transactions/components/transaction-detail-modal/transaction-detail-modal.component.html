@@ -1,0 +1,70 @@
+<!-- Backdrop y Panel lateral de detalles -->
+<div class="modal-backdrop" [class.open]="isOpen" (click)="closeModal()" *ngIf="transaction">
+  <div class="detail-panel" [class.open]="isOpen" (click)="$event.stopPropagation()">
+    <div class="detail-panel__header">
+      <h3>Detalle de Transacción</h3>
+      <button class="close-btn" (click)="closeModal()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    
+    <div class="detail-panel__content">
+      <div class="detail-section">
+        <h4>Información General</h4>
+        <div class="detail-item">
+          <label>ID Transacción Bold:</label>
+          <span>{{ transaction.id }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Estado:</label>
+          <span class="status-badge" [class]="'status-' + transaction.status.toLowerCase()">
+            <mat-icon>{{ transaction.status | statusIcon }}</mat-icon>
+            {{ transaction.status === 'SUCCESSFUL' ? 'Cobro exitoso' : 'Cobro no realizado' }}
+          </span>
+        </div>
+        <div class="detail-item">
+          <label>Fecha y Hora:</label>
+          <span>{{ transaction.createdAt | dateFormat }}</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h4>Información de Pago</h4>
+        <div class="detail-item">
+          <label>Método de Pago:</label>
+          <span>
+            <mat-icon>{{ transaction.paymentMethod | paymentMethodIcon }}</mat-icon>
+            {{ transaction.paymentMethod }}
+          </span>
+        </div>
+        <div class="detail-item">
+          <label>Tipo de Pago:</label>
+          <span>
+            <mat-icon>{{ transaction.salesType === 'TERMINAL' ? 'credit_card' : 'link' }}</mat-icon>
+            {{ transaction.salesType === 'TERMINAL' ? 'Datáfono' : 'Link de pago' }}
+          </span>
+        </div>
+        <div class="detail-item">
+          <label>Referencia:</label>
+          <span>{{ transaction.transactionReference }}</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h4>Información Financiera</h4>
+        <div class="detail-item">
+          <label>Monto:</label>
+          <span class="amount">{{ transaction.amount | currencyColombia }}</span>
+        </div>
+        <div class="detail-item" *ngIf="transaction.deduction && transaction.deduction > 0">
+          <label>Deducción Bold:</label>
+          <span class="deduction">-{{ (transaction.deduction || 0) | currencyColombia }}</span>
+        </div>
+        <div class="detail-item" *ngIf="transaction.deduction && transaction.deduction > 0">
+          <label>Total Neto:</label>
+          <span class="net-amount">{{ (transaction.amount - (transaction.deduction || 0)) | currencyColombia }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
